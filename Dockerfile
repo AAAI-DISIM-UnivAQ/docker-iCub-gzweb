@@ -9,8 +9,8 @@ RUN git clone https://github.com/robotology/gazebo-yarp-plugins.git &&  \
     cd gazebo-yarp-plugins && \ 
     mkdir build && \ 
     cd build && \ 
-    cmake ../ && 
-    #\
+    cmake ../
+    # && \
     #make install && \
     #export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/usr/local
     
