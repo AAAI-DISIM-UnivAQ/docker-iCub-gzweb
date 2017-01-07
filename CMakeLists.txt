@@ -1,4 +1,4 @@
- add_subdirectory(camera)
+add_subdirectory(camera)
 add_subdirectory(clock)
 add_subdirectory(controlboard)
 add_subdirectory(externalwrench)
@@ -10,35 +10,29 @@ add_subdirectory(multicamera)
 add_subdirectory(maissensor)
 
 find_package(OpenCV QUIET)
-option(GAZEBO_YARP_PLUGINS_HAS_OPENCV "Compile plugins that depend on OpenCV" ${Open
-CV_FOUND})
+option(GAZEBO_YARP_PLUGINS_HAS_OPENCV "Compile plugins that depend on OpenCV" ${OpenCV_FOUND})
 
 if(GAZEBO_YARP_PLUGINS_HAS_OPENCV)
     add_subdirectory(videotexture)
 else()
-    message(STATUS "GAZEBO_YARP_PLUGINS_HAS_OPENCV CMake option set to off, disablin
-g videotexture plugin.")
+    message(STATUS "GAZEBO_YARP_PLUGINS_HAS_OPENCV CMake option set to off, disabling videotexture plugin.")
 endif()
 
 if( GAZEBO_VERSION VERSION_GREATER 3.9 )
     add_subdirectory(worldinterface)
 else()
-    message(WARNING "Gazebo version is lower than 4.0, disabling worldinterface plug
-in.")
+    message(WARNING "Gazebo version is lower than 4.0, disabling worldinterface plugin.")
 endif()
 
 #if( NOT (GAZEBO_VERSION VERSION_LESS 6) )
 #    add_subdirectory(lasersensor)
 #else()
-#    message(STATUS "Gazebo version is lower than 6, disabling  lasersensor plugin."
-#)
+#    message(STATUS "Gazebo version is lower than 6, disabling  lasersensor plugin.")
 #endif()
 
 # disabling depthCamera plugin until it is updated to latest changes in yarp
-if( (NOT (GAZEBO_VERSION VERSION_LESS 7)) AND (NOT (YARP_VERSION VERSION_LESS 2.3.67
-)) )
+if( (NOT (GAZEBO_VERSION VERSION_LESS 7)) AND (NOT (YARP_VERSION VERSION_LESS 2.3.67)) )
     add_subdirectory(depthCamera)
 else()
-    message(STATUS "Gazebo version is lower than 7 or YARP version is lower than 2.3
-.67, disabling depthCamera  plugin.")
+    message(STATUS "Gazebo version is lower than 7 or YARP version is lower than 2.3.67, disabling depthCamera  plugin.")
 endif()
