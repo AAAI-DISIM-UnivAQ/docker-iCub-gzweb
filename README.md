@@ -8,4 +8,4 @@ Encaplusating the original [robotology/icub-gazebo](http://github.com/robotology
     # yarpserver &
     # yarp check
     # cd /root/gzweb
-    # ./start_gzweb.sh && gzserver
+    # ./start_gzweb.sh && gzserver ../icub-gazebo/worlds/icub_fixed.world
