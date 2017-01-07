@@ -5,7 +5,7 @@ RUN sh -c 'echo "deb http://www.icub.org/ubuntu trusty contrib/science" > /etc/a
 RUN apt-get update && apt-get upgrade -q -y 
 RUN apt-get install -q -y --force-yes git yarp && yarp check
 
-RUN git clone https://github.com/robotology/gazebo-yarp-plugins.git 
+RUN cd /root && git clone https://github.com/robotology/gazebo-yarp-plugins.git 
 
 # with disabled lasersensor
 COPY CMakeLists.txt /gazebo-yarp-plugins/plugins/CMakeLists.txt
@@ -17,8 +17,11 @@ RUN cd gazebo-yarp-plugins && \
     make install && \
     export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/usr/local
 
+RUN cd /root && git clone https://github.com/robotology/icub-gazebo.git && \
+    export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:/root/icub-gazebo
+
 RUN cd /root/gzweb && \
-    ./deploy -m -t
+    ./deploy.sh -m -t
     
 # open port to interact with it
 EXPOSE 10000/tcp 
