@@ -8,7 +8,7 @@ RUN apt-get install -q -y --force-yes git yarp && yarp check
 RUN cd /root && git clone https://github.com/robotology/gazebo-yarp-plugins.git 
 
 # with disabled lasersensor
-COPY CMakeLists.txt /gazebo-yarp-plugins/plugins/CMakeLists.txt
+COPY CMakeLists.txt /root/gazebo-yarp-plugins/plugins/CMakeLists.txt
 
 RUN cd gazebo-yarp-plugins && \ 
     mkdir build && \ 
