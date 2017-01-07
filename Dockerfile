@@ -16,6 +16,9 @@ RUN cd gazebo-yarp-plugins && \
     cmake ..&& \
     make install && \
     export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/usr/local
+
+RUN cd /root/gzweb && \
+    ./deploy -m -t
     
 # open port to interact with it
 EXPOSE 10000/tcp 
