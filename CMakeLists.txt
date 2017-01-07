@@ -31,7 +31,7 @@ endif()
 #    add_subdirectory(lasersensor)
 #else()
 #    message(STATUS "Gazebo version is lower than 6, disabling  lasersensor plugin."
-)
+#)
 #endif()
 
 # disabling depthCamera plugin until it is updated to latest changes in yarp
