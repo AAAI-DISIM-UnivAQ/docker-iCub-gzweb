@@ -10,7 +10,7 @@ RUN cd /root && git clone https://github.com/robotology/gazebo-yarp-plugins.git
 # with disabled lasersensor
 COPY CMakeLists.txt /root/gazebo-yarp-plugins/plugins/CMakeLists.txt
 
-RUN cd gazebo-yarp-plugins && \ 
+RUN cd /root/gazebo-yarp-plugins && \ 
     mkdir build && \ 
     cd build && \ 
     cmake ..&& \
